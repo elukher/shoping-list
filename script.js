@@ -1,33 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
-    loadItems();
+    loadItemsFromUrl();
     updateItemCount();
 });
 
-function addItem() {
+function addItemFromInput() {
     const newItemValue = document.getElementById('newItem').value.trim();
     if (newItemValue !== '') {
-        const list = document.getElementById('itemList');
-        const li = document.createElement('li');
-        const itemText = document.createElement('span');
-        itemText.innerText = newItemValue;
-        itemText.onclick = function() { toggleStrikeThrough(this); };
-        li.appendChild(itemText);
-        li.appendChild(createRemoveButton());
-        list.appendChild(li);
+        addItemToList(newItemValue);
+        document.getElementById('newItem').value = '';
         updateItemCount();
         saveItems();
     }
-    document.getElementById('newItem').value = '';
 }
 
+function addItemToList(itemText) {
+    const list = document.getElementById('itemList');
+    const li = document.createElement('li');
+    const itemSpan = document.createElement('span');
+    itemSpan.innerText = itemText;
+    itemSpan.onclick = function() { toggleStrikeThrough(this); };
+    li.appendChild(itemSpan);
+    li.appendChild(createRemoveButton());
+    list.appendChild(li);
+}
 function createRemoveButton() {
     const removeButton = document.createElement('button');
-    removeButton.innerText = 'Remove';
+    removeButton.innerHTML = '<ion-icon name="close-sharp"></ion-icon>';
+    removeButton.classList.add('remove-button');
     removeButton.onclick = function(event) {
         event.stopPropagation();
-        event.target.parentElement.remove();
-        updateItemCount();
-        saveItems();
+        // Remove the list item from the DOM
+        const li = event.target.closest('li');
+        if (li) {
+            li.remove();
+            updateItemCount();
+            saveItems();
+        }
     };
     return removeButton;
 }
@@ -45,22 +53,24 @@ function saveItems() {
         items.push(itemSpan.innerText.trim()); // Make sure to trim any extra whitespace
     });
     localStorage.setItem('shoppingList', JSON.stringify(items));
+    updateUrl();
+}
+
+function loadItemsFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const items = params.get('list') ? params.get('list').split(',').map(decodeURIComponent) : [];
+    items.forEach(addItemToList);
 }
 
 function loadItems() {
-    const items = JSON.parse(localStorage.getItem('shoppingList'));
-    if (items) {
-        items.forEach(item => {
-            const list = document.getElementById('itemList');
-            const li = document.createElement('li');
-            const itemText = document.createElement('span');
-            itemText.innerText = item;
-            itemText.onclick = function() { toggleStrikeThrough(this); };
-            li.appendChild(itemText);
-            li.appendChild(createRemoveButton());
-            list.appendChild(li);
-        });
-    }
+    const list = document.getElementById('itemList');
+    const li = document.createElement('li');
+    const itemSpan = document.createElement('span');
+    itemSpan.innerText = itemText;
+    itemSpan.onclick = function() { toggleStrikeThrough(this); };
+    li.appendChild(itemSpan);
+    li.appendChild(createRemoveButton());
+    list.appendChild(li);
 }
 
 function toggleStrikeThrough(item) {
@@ -70,4 +80,11 @@ function toggleStrikeThrough(item) {
 function updateItemCount() {
     const itemCount = document.querySelectorAll('#itemList li').length;
     document.getElementById('item-count').textContent = itemCount;
+}
+
+function updateUrl() {
+    const items = Array.from(document.querySelectorAll('#itemList li span'))
+                        .map(span => encodeURIComponent(span.textContent.trim()));
+    const queryParams = new URLSearchParams({ list: items.join(',') });
+    window.history.pushState({}, '', '?' + queryParams.toString());
 }
