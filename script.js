@@ -38,9 +38,8 @@ function clearAll() {
 
 function saveItems() {
     const items = [];
-    document.querySelectorAll('#itemList li').forEach(item => {
-        let itemText = item.childNodes[0].nodeValue.trim();
-        items.push(itemText);
+    document.querySelectorAll('#itemList li span').forEach(itemSpan => {
+        items.push(itemSpan.innerText.trim()); // Make sure to trim any extra whitespace
     });
     localStorage.setItem('shoppingList', JSON.stringify(items));
 }
