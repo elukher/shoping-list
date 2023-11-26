@@ -11,7 +11,6 @@ function addItemFromInput() {
     if (newItemValue !== '') {
         addItemToList(newItemValue);
         document.getElementById('newItem').value = '';
-        updateItemCount();
         saveItems();
     }
 }
@@ -36,7 +35,6 @@ function createRemoveButton() {
         const li = event.target.closest('li');
         if (li) {
             li.remove();
-            updateItemCount();
             saveItems();
         }
     };
@@ -56,6 +54,7 @@ function saveItems() {
         items.push(itemSpan.innerText.trim()); // Make sure to trim any extra whitespace
     });
     localStorage.setItem('shoppingList', JSON.stringify(items));
+    updateItemCount();
     updateUrl();
 }
 
