@@ -6,6 +6,10 @@ body {
     text-align: center;
 }
 
+span {
+    color: black
+}
+
 h1 {
     color: black; /* Updated title color */
     font-size: 2em; /* Larger title font size */
@@ -67,7 +71,7 @@ li span {
 li button {
     background-color: #ff440054;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 5px 5px;
 }
 
 li button:hover {
@@ -100,11 +104,12 @@ button.clear-all:hover {
     align-items: center; /* Align items vertically */
     justify-content: center; /* Center items horizontally */
     margin: 20px 0;
+    color: black
 }
 
 ion-icon {
-    font-size: 60px; /* Adjust the size of the icon */
-    color: black; /* Change the color if needed */
+    font-size: 40px; /* Adjust the size of the icon */
+    color: black;
 }
 
 #item-count {
@@ -114,14 +119,6 @@ ion-icon {
 }
 
 @media (max-width: 600px) {
-    body {
-        font-size: 16px; /* Further increase the base font size */
-    }
-
-    h1 {
-        font-size: 1.6em; /* Even larger title on small screens */
-    }
-
     input[type="text"] {
         font-size: 16px; /* Increase font size for text input */
         padding: 10px; /* Increase padding for text input */
@@ -133,21 +130,11 @@ ion-icon {
         padding: 5px; /* Increase padding for list items */
     }
 
-    button {
-        width: 25%; /* Full width for buttons */
-
-    }
-
-    .add-button, .clear-all {
-        width: 50%; /* Full width for buttons */
-        margin-bottom: 5px; /* Add more space between buttons */
-    }
-
     .cart {
         margin: 20px 0; /* Add more margin at the top and bottom */
     }
 
     ion-icon {
-        font-size: 30px; /* Increase the size of the icon */
+        font-size: 30px;
     }
 }
