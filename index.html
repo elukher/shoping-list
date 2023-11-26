@@ -9,8 +9,10 @@
 <body>
     <h1>Shopping List</h1> <!-- Add this line for the title -->
     <input type="text" id="newItem" placeholder="New Item">
-    <button onclick="addItem()">Add Item</button>
-    <button onclick="clearAll()" class="clear-all">Clear All</button>
+    <div class="button-container"> <!-- New container for buttons -->
+        <button onclick="addItem()">Add Item</button>
+        <button onclick="clearAll()" class="clear-all">Clear All</button>
+    </div>
 
     <div class="cart">
         <ion-icon name="cart-sharp"></ion-icon>

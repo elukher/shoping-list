@@ -95,3 +95,38 @@ ion-icon {
     font-size: 60px; /* Adjust the size of the icon */
     color: black; /* Change the color if needed */
 }
+
+
+@media (max-width: 600px) {
+    body {
+        font-size: 20px; /* Further increase the base font size */
+    }
+
+    h1 {
+        font-size: 4em; /* Even larger title on small screens */
+    }
+
+    input[type="text"] {
+        font-size: 28px; /* Increase font size for text input */
+        padding: 20px; /* Increase padding for text input */
+        margin: 15px 0; /* Adjust margin as needed */
+    }
+
+    .list-container ul li, .list-container ul li span {
+        font-size: 28px; /* Increase font size for list items */
+        padding: 15px; /* Increase padding for list items */
+    }
+
+    button {
+        width: 100%; /* Full width for buttons */
+        margin-bottom: 15px; /* Add more space between buttons */
+    }
+
+    .cart {
+        margin: 30px 0; /* Add more margin at the top and bottom */
+    }
+
+    ion-icon {
+        font-size: 80px; /* Increase the size of the icon */
+    }
+}
