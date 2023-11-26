@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping List</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <h1>Shopping List</h1> <!-- Add this line for the title -->
+    <input type="text" id="newItem" placeholder="New Item">
+    <button onclick="addItem()">Add Item</button>
+    <button onclick="clearAll()" class="clear-all">Clear All</button>
+
+    <div class="cart">
+        <ion-icon name="cart-sharp"></ion-icon>
+    </div>
+
+    <div class="list-container"> <!-- Add a container around the list -->
+        <ul id="itemList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

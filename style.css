@@ -1,0 +1,97 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated font */
+    background-color: #f2f2f2;
+    padding: 20px;
+    color: #333;
+    text-align: center;
+}
+
+h1 {
+    color: black; /* Updated title color */
+    font-size: 2em; /* Larger title font size */
+}
+
+input[type="text"] {
+    font-size: 16px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd; /* Subtle border for the input */
+    border-radius: 5px; /* Rounded corners */
+    width: 60%; /* Relative width */
+    max-width: 300px; /* Maximum width */
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 15px; /* Adjusted padding */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.list-container {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fff;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px
+}
+
+li span {
+    cursor: pointer; /* Indicates the text is clickable */
+    font-weight: bold;
+    font-size: 18px
+}
+
+li button {
+    background-color: #ff6347;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+li button:hover {
+    background-color: #ff4500;
+}
+
+button.clear-all {
+    background-color: #ff6347;
+}
+
+button.clear-all:hover {
+    background-color: #ff4500;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+    font-weight: normal;
+}
+
+.cart {
+    text-align: center;
+    margin: 20px 0; /* Add margin at the top and bottom */
+}
+
+ion-icon {
+    font-size: 60px; /* Adjust the size of the icon */
+    color: black; /* Change the color if needed */
+}
