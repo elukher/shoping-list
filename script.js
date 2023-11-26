@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     loadItems();
+    updateItemCount();
 });
 
 function addItem() {
@@ -13,6 +14,7 @@ function addItem() {
         li.appendChild(itemText);
         li.appendChild(createRemoveButton());
         list.appendChild(li);
+        updateItemCount();
         saveItems();
     }
     document.getElementById('newItem').value = '';
@@ -24,6 +26,7 @@ function createRemoveButton() {
     removeButton.onclick = function(event) {
         event.stopPropagation();
         event.target.parentElement.remove();
+        updateItemCount();
         saveItems();
     };
     return removeButton;
@@ -62,4 +65,9 @@ function loadItems() {
 
 function toggleStrikeThrough(item) {
     item.classList.toggle('strikethrough');
+}
+
+function updateItemCount() {
+    const itemCount = document.querySelectorAll('#itemList li').length;
+    document.getElementById('item-count').textContent = itemCount;
 }

@@ -87,8 +87,10 @@ button.clear-all:hover {
 }
 
 .cart {
-    text-align: center;
-    margin: 20px 0; /* Add margin at the top and bottom */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Align items vertically */
+    justify-content: center; /* Center items horizontally */
+    margin: 20px 0;
 }
 
 ion-icon {
@@ -96,37 +98,47 @@ ion-icon {
     color: black; /* Change the color if needed */
 }
 
+#item-count {
+    font-size: 24px; /* Adjust font size as needed */
+    margin-left: 10px; /* Spacing between the icon and the number */
+    line-height: 1; /* Adjust line height to align with the icon */
+}
 
 @media (max-width: 600px) {
     body {
-        font-size: 20px; /* Further increase the base font size */
+        font-size: 16px; /* Further increase the base font size */
     }
 
     h1 {
-        font-size: 4em; /* Even larger title on small screens */
+        font-size: 1.6em; /* Even larger title on small screens */
     }
 
     input[type="text"] {
-        font-size: 28px; /* Increase font size for text input */
-        padding: 20px; /* Increase padding for text input */
+        font-size: 16px; /* Increase font size for text input */
+        padding: 10px; /* Increase padding for text input */
         margin: 15px 0; /* Adjust margin as needed */
     }
 
     .list-container ul li, .list-container ul li span {
-        font-size: 28px; /* Increase font size for list items */
-        padding: 15px; /* Increase padding for list items */
+        font-size: 20px; /* Increase font size for list items */
+        padding: 5px; /* Increase padding for list items */
     }
 
     button {
-        width: 100%; /* Full width for buttons */
-        margin-bottom: 15px; /* Add more space between buttons */
+        width: 25%; /* Full width for buttons */
+
+    }
+
+    .main-button, .clear-all {
+        width: 50%; /* Full width for buttons */
+        margin-bottom: 5px; /* Add more space between buttons */
     }
 
     .cart {
-        margin: 30px 0; /* Add more margin at the top and bottom */
+        margin: 20px 0; /* Add more margin at the top and bottom */
     }
 
     ion-icon {
-        font-size: 80px; /* Increase the size of the icon */
+        font-size: 30px; /* Increase the size of the icon */
     }
 }
