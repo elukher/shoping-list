@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-    loadItemsFromUrl();
+    if (window.location.search) {
+        loadItemsFromUrl();
+    } else {
+        loadItemsFromLocalStorage();
+    }
     updateItemCount();
 });
-
 function addItemFromInput() {
     const newItemValue = document.getElementById('newItem').value.trim();
     if (newItemValue !== '') {
@@ -62,15 +65,11 @@ function loadItemsFromUrl() {
     items.forEach(addItemToList);
 }
 
-function loadItems() {
-    const list = document.getElementById('itemList');
-    const li = document.createElement('li');
-    const itemSpan = document.createElement('span');
-    itemSpan.innerText = itemText;
-    itemSpan.onclick = function() { toggleStrikeThrough(this); };
-    li.appendChild(itemSpan);
-    li.appendChild(createRemoveButton());
-    list.appendChild(li);
+function loadItemsFromLocalStorage() {
+    const items = JSON.parse(localStorage.getItem('shoppingList'));
+    if (items) {
+        items.forEach(addItemToList);
+    }
 }
 
 function toggleStrikeThrough(item) {
